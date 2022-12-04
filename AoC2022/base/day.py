@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import IO
 
 root = Path(__file__).parent.parent.parent
-print(root)
 
 class Day:
     tests = []
@@ -12,7 +11,6 @@ class Day:
 
     def __init__(self):
         self.file_dir = root / "data" / self.__class__.__name__.lower()
-        print(self.file_dir)
         self.file: IO | None = None
 
     def run(self):

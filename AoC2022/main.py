@@ -10,7 +10,6 @@ if __name__ == '__main__':
         day = args.day
     else:
         day = datetime.now().day
-    print(day)
     exec(f"""
 import days
 d = days.Day{day}()
