@@ -36,4 +36,4 @@ class Day4(Day):
 
     def part2(self):
         ranges = self.parse()
-        return sum([1 for x, y in ranges if self.intersects(x, y) or self.intersects(y, x)])
+        return sum(1 for x, y in ranges if self.intersects(x, y) or self.intersects(y, x))
