@@ -35,8 +35,8 @@ move 1 from 1 to 2"""]
     def part1(self):
         instructions, state = self.parse()
         for count, source, sink in instructions:
-            for _ in range(count):
-                state[sink].append(state[source].pop())
+            state[sink].extend(reversed(state[source][-count:]))
+            del state[source][-count:]
 
         res = ""
         for i in range(len(state)):
@@ -46,11 +46,8 @@ move 1 from 1 to 2"""]
     def part2(self):
         instructions, state = self.parse()
         for count,source,sink in instructions:
-            tmp = []
-            for _ in range(count):
-                tmp.append(state[source].pop())
-            for _ in range(count):
-                state[sink].append(tmp.pop())
+            state[sink].extend(state[source][-count:])
+            del state[source][-count:]
 
         res = ""
         for i in range(len(state)):
