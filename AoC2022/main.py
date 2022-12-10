@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime
+import days  # noqa
 
 parser = argparse.ArgumentParser("Advent of Code")
 parser.add_argument("--day", help="The day to run. If omitted defaults to today", type=int)
@@ -11,7 +12,6 @@ if __name__ == '__main__':
     else:
         day = datetime.now().day
     exec(f"""
-import days
 d = days.Day{day}()
 d.run()
-    """, locals(), globals())
+    """, {}, globals())
