@@ -25,8 +25,8 @@ class Day:
                         print("Passed")
                     else:
                         print("Failed")
-                        print(f"Expected {self.part1_answers[i]}")
-                        print(f"Got      {res}")
+                        print(f"Expected\n{self.part1_answers[i]}")
+                        print(f"Got\n{res}")
                 except NotImplementedError:
                     print('(Skipped)')
             else:
@@ -39,8 +39,8 @@ class Day:
                         print("Passed")
                     else:
                         print("Failed")
-                        print(f"Expected {self.part2_answers[i]}")
-                        print(f"Got      {res}")
+                        print(f"Expected\n{self.part2_answers[i]}")
+                        print(f"Got\n{res}")
                 except NotImplementedError:
                     print('(Skipped)')
             else:
