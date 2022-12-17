@@ -14,6 +14,7 @@ class Day:
         self.file: IO | None = None
 
     def run(self):
+        has_failure = [False,False]
         for i, test in enumerate(self.tests):
             print(f"== Test case {i+1} ==")
             self.file = StringIO(test)
@@ -24,6 +25,7 @@ class Day:
                     if res == self.part1_answers[i]:
                         print("Passed")
                     else:
+                        has_failure[0] = True
                         print("Failed")
                         print(f"Expected\n{self.part1_answers[i]}")
                         print(f"Got\n{res}")
@@ -38,6 +40,7 @@ class Day:
                     if res == self.part2_answers[i]:
                         print("Passed")
                     else:
+                        has_failure[1] = True
                         print("Failed")
                         print(f"Expected\n{self.part2_answers[i]}")
                         print(f"Got\n{res}")
@@ -51,13 +54,19 @@ class Day:
             self.file = f
             print("Part 1")
             try:
-                print(self._run(self.part1))
+                if has_failure[0]:
+                    print('(Skipped)')
+                else:
+                    print(self._run(self.part1))
             except NotImplementedError:
                 print('(Skipped)')
             print()
             print("Part 2")
             try:
-                print(self._run(self.part2))
+                if has_failure[1]:
+                    print('(Skipped)')
+                else:
+                    print(self._run(self.part2))
             except NotImplementedError:
                 print('(Skipped)')
 
